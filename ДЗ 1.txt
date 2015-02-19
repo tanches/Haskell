@@ -12,7 +12,7 @@ PHP                  |
 Ruby                 |
 Smalltalk            |
 Lua                  |
-АЛГОЛ-68            |
+АЛГОЛ-68             |
 C++                  |
 Python               |
 D                    |
