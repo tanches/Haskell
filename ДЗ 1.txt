@@ -1,0 +1,22 @@
+﻿Есть ФП              | Нет ФП
+_____________________|______________
+Factir               | Pascal
+Lex/Yacc             | 1C
+AS3 (Action Script)  | Fortran
+C# 3.0               | Ada
+Java 8               | Assembler
+R                    | C
+Java Script          | Forth
+Perl                 |
+PHP                  |
+Ruby                 |
+Smalltalk            |
+Lua                  |
+АЛГОЛ-68            |
+C++                  |
+Python               |
+D                    |
+Delphi               |
+Groovy               |
+Swift                |
+Cofee Script         |
