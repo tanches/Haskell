@@ -1,11 +1,11 @@
-module Factorial where
+п»їmodule Factorial where
 
 factorial n =
-    -- факториал от 0 = 1
+    -- С„Р°РєС‚РѕСЂРёР°Р» РѕС‚ 0 = 1
     if n == 0
         then 1
     else 
-    -- рекурсивное вычисление факториала
+    -- СЂРµРєСѓСЂСЃРёРІРЅРѕРµ РІС‹С‡РёСЃР»РµРЅРёРµ С„Р°РєС‚РѕСЂРёР°Р»Р°
         n * factorial (n-1)
 
 main = putStrLn (show (factorial 6))
