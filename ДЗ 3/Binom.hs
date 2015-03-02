@@ -18,4 +18,4 @@ binomKof k n =
 	else
 		div (factorial n) ((factorial k) * (factorial (n-k)))
 
-main = putStrLn( show( binomKof 2 6))
+main = putStrLn (show (binomKof 2 6))
