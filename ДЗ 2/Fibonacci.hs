@@ -14,4 +14,6 @@ fibArray n = arr
     -- так как вычисляемое значение зависит от текущей позиции в выходном массиве, необходимо указывать этот самый счетчик
     where arr = array (0, n) ([(0, 0), (1, 1), (2, 1)] ++ [(i, arr!(i-2) + arr!(i-1)) | i <- [3..n]])
 
-main = putStrLn ((show (fibArray 4)) ++ "\n" ++ (show (3)) ++ " element is " ++ show (fibonacci 3))
+fibList n = list where list = [product [1..n] | n <- [0..n]]
+
+main = putStrLn ((show (fibArray 4)) ++ "\n" ++ (show (3)) ++ " element is " ++ show (fibonacci 3) ++ "\n" ++ show (fibList 5))
