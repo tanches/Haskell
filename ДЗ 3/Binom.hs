@@ -13,9 +13,9 @@ binomKof k n =
     if n < k
         then error "First argument must be less than second"
     else
-		if n == k
-			then 1
-		else
-			div (factorial n) ((factorial k)*(factorial (n-k)))
+	if n == k
+		then 1
+	else
+		div (factorial n) ((factorial k) * (factorial (n-k)))
 
-main = putStrLn(show(binomKof 2 6))
+main = putStrLn( show( binomKof 2 6))
