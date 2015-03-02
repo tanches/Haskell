@@ -16,6 +16,6 @@ binomKof k n =
 		if n == k
 			then 1
 		else
-			div (factorial n) ((factorial k) * (factorial (n-k)))
+			div (factorial n) ((factorial k)*(factorial (n-k)))
 
-main = putStrLn (show (binomKof 2 6))
+main = putStrLn(show(binomKof 2 6))
