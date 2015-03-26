@@ -20,4 +20,11 @@ height Null = 0
 --находим максимальное дерево и к нему прибавляем 1, т.к. меньшее дерево и так войдет в большее по высоте
 height (Node left _ right) = (max (height left) (height right)) + 1
 
-main = putStrLn (show (height tree_three))
+--main = putStrLn (show (height tree_three))
+
+-- Реализовать функцию суммирования всех элементов в дереве.
+sumT :: BinarySearchTree -> Int
+sumT Null = 0
+sumT (Node left middle right) = (+) middle ((+) (sumT left) (sumT right))
+
+main = putStrLn (show (sumT tree_three))
