@@ -21,3 +21,9 @@ height (BinarySearchTree _ left right) = max (height left) (height right) + 1
 
 --Реализовать функцию tmap, принимающюю дерево и функцию преобразования элемента (a -> b) и
 --возвращающую новое дерево той же формы, но содержащее элементы, полученные применением функции к исходным элементам.
+tmap :: (a -> b) -> BinarySearchTree a -> BinarySearchTree b
+tmap operation tr = case tr of
+                Null -> Null
+                BinarySearchTree l m r -> BinarySearchTree (operation l) (tmap operation m) (tmap operation r)
+
+main = putStrLn("It's OK")
