@@ -15,4 +15,18 @@ ex4 = Con "wow" 3 "rest" Null
 fn_for_list :: ListOfDiffTypes -> a
 fn_for_list list = case list of
                     Null -> undefined
-                    Cons str list -> undefined str (fn_for_list list)
+                    Cons str int list -> undefined str (fn_for_list list)
+                    Con str int str2 list -> undefined str (fn_for_list list)
+                    Cons2 int str list -> undefined str (fn_for_list list)
+                    Con2 int str int2 list -> undefined str (fn_for_list list)
+
+-- Реализовать функцию определения длины такого списка.
+length2 :: ListOfDiffTypes -> Int
+length2 l = case l of
+                    Null -> 0
+                    Cons str int l -> 2 + (length2 l)
+                    Con str int str2 l -> 3 + (length2 l)
+                    Cons2 int str l -> 2 + (length2 l)
+                    Con2 int str int2 l -> 3 + (length2 l)
+
+main = putStrLn (show (length2 ex4))
