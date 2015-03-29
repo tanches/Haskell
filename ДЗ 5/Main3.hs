@@ -11,6 +11,7 @@ ex1 = Cons "hello" 5 Null
 ex2 = Cons2 4 "wow" Null
 ex3 = Con "wow" 3 "rest" Null
 ex4 = Con "wow" 3 "rest" Null
+ex5 = Cons "hello" 5 ex3
 
 fn_for_list :: ListOfDiffTypes -> a
 fn_for_list list = case list of
@@ -29,4 +30,4 @@ length2 l = case l of
                     Cons2 int str l -> 2 + (length2 l)
                     Con2 int str int2 l -> 3 + (length2 l)
 
-main = putStrLn (show (length2 ex4))
+main = putStrLn (show (length2 ex5))
