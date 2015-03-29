@@ -9,3 +9,8 @@ data ListOfDiffTypes = Null
 						
 ex1 = Cons "hello" 5 Con "world" 3 "!"
 ex2 = Cons2 4 "wow" 3 Con2 3 "same" 7
+
+fn_for_list :: ListOfDiffTypes -> a
+fn_for_list list = case list of
+                    Null -> undefined
+                    Cons str list -> undefined str (fn_for_list list)
