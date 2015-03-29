@@ -2,13 +2,15 @@
 
 -- Создать тип данных для списков, в которых чередуются элементы двух разных типов.
 data ListOfDiffTypes = Null
-                        | Cons String ListOfDiffTypes Int ListOfDiffTypes
-                        | Con String ListOfDiffTypes Int ListOfDiffTypes String ListOfDiffTypes
-                        | Cons2 Int ListOfDiffTypes String ListOfDiffTypes
-                        | Con2 Int ListOfDiffTypes String ListOfDiffTypes Int ListOfDiffTypes
+                        | Cons String Int ListOfDiffTypes
+                        | Con String Int String ListOfDiffTypes
+                        | Cons2 Int String ListOfDiffTypes
+                        | Con2 Int String Int ListOfDiffTypes
 						
-ex1 = Cons "hello" 5 Con "world" 3 "!"
-ex2 = Cons2 4 "wow" 3 Con2 3 "same" 7
+ex1 = Cons "hello" 5 Null
+ex2 = Cons2 4 "wow" Null
+ex3 = Con "wow" 3 "rest" Null
+ex4 = Con "wow" 3 "rest" Null
 
 fn_for_list :: ListOfDiffTypes -> a
 fn_for_list list = case list of
