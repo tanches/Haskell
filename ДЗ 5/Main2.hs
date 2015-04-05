@@ -24,6 +24,6 @@ height (Node _ left right) = max (height left) (height right) + 1
 tmap :: (a -> b) -> BinarySearchTree a -> BinarySearchTree b
 tmap operation tr = case tr of
                 Null -> Null
-                Node l m r -> Node (operation l) (tmap operation m) (tmap operation r)
+                Node m l r -> Node (operation m) (tmap operation l) (tmap operation r)
 
 main = putStrLn("It's OK")
