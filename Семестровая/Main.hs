@@ -15,7 +15,7 @@ data Term =
 -- Shift
 termShift :: Integer -> Integer -> Term -> Term
 termShift d b term = case term of
-    Var v -> if (v < b) then Var v else Var (v + d)
+    Var v -> if (v > b) then Var (v + d) else Var v
     Abs t -> Abs (termShift d (b + 1) t)
     App t1 t2 -> App (termShift d b t1) (termShift d b t2)
 
