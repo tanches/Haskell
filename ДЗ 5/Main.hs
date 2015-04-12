@@ -3,7 +3,7 @@
 -- Создать тип данных для бинарного дерева поиска (binary search tree), хранящего значения типа Int.
 data BinarySearchTree =
                         Null
-                        | Node BinarySearchTree Int BinarySearchTree
+                        | Node { treel :: BinarySearchTree, leaf :: Int, treer :: BinarySearchTree}
                         deriving (Show)
 -- interp. binary search tree
 
@@ -30,13 +30,11 @@ sumT (Node left middle right) = (+) middle ((+) (sumT left) (sumT right))
 main = putStrLn (show (sumT tree_three))
 
 -- Реализовать функцию поиска заданного элемента в дереве.
-find Null _ = (Null)
-find (Node left toFind right) n
-                             -- ищем справа
-                             | n > toFind = Node left toFind (find right n)
-                             -- ищем слева
-                             | n < toFind = Node (find left n) toFind right
-                             -- нашли!
-                             | n == toFind = error "Actually, it isn't error. I really found this number"
+find :: BinarySearchTree -> Int -> String
+find Null _ = "Not found"
+find tree n
+    | n > (leaf tree) = find (treer tree) n
+    | n < (leaf tree) = find (treel tree) n
+    | n == (leaf tree) = "I found"
 
 main = putStrLn (show (find tree_three 3))
