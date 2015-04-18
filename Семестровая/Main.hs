@@ -2,8 +2,8 @@
 
 data Term2 =
     Variable String
-    | Abstraction Term2 Term2
-    | Application String Term2 deriving (Show)
+    | Abstraction String Term2
+    | Application Term2 Term2 deriving (Show)
 -- Interp. Data definition
 
 data Term =
