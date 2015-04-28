@@ -24,7 +24,7 @@ length2 l = case l of
 
 -- Реализовать функцию dmap, принимающую такой список и две функции преобразования элементов,
 -- и возвращающую новый список, содержащий преобразованные элементы в том же порядке, что и исходные.
---dmap :: ((a b) -> (c d)) -> ((c d) -> (e f)) -> ListOfDiffTypes a b -> ListOfDiffTypes e f
+--dmap :: (a -> c) -> (b -> d) -> ListOfDiffTypes a b -> ListOfDiffTypes c d
 dmap operation operation2 list = case list of
                 Null -> Null
                 Twist arg ls -> Twist (operation arg) (dmap operation2 operation ls)
