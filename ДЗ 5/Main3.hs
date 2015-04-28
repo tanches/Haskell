@@ -27,6 +27,6 @@ length2 l = case l of
 --dmap :: ((a b) -> (c d)) -> ((c d) -> (e f)) -> ListOfDiffTypes a b -> ListOfDiffTypes e f
 dmap operation operation2 list = case list of
                 Null -> Null
-                Twist arg list -> (operation operation2 arg) (dmap operation operation2 list)
+                Twist arg ls -> Twist (operation arg) (dmap operation2 operation ls)
 
 main = putStrLn ("It's OK")
