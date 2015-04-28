@@ -5,7 +5,8 @@ type Context = [(String, Type)]
 
 data Type =
       Bool
-    | Arr Type Type deriving (Eq)
+    | Error
+    | Arr Type Type deriving (Show, Eq)
 -- interp. type of typed arithmetic expression
 
 data Term =
@@ -22,7 +23,8 @@ context ctx t = t : ctx
 
 getTypeFromContext ctx var = case (lookup var ctx) of
     Just typ -> typ
-    Nothing -> error "Wrong type of binding for variable"
+    Nothing -> Error
+--    Nothing -> error "Wrong type of binding for variable"
 -- find variable type in the context
 
 checkType :: Context -> Term -> Type
@@ -36,15 +38,24 @@ checkType ctx t = case t of
                                in
                                    if (type2 == checkType ctx t3)
                                        then type2
-                                   else error "Different types"
-                       else error "Not a boolean"
+                                   else Error
+--                                   else error "Different types"
+                        else Error
+--                       else error "Not a boolean"
     TermVar v -> getTypeFromContext ctx v
     TermAbs str typ t -> Arr typ (checkType (context ctx (str, typ)) t)
     TermApp t1 t2 -> let
                         type1 = checkType ctx t1
                         type2 = checkType ctx t2
                      in case type1 of
-                            Arr t11 t12 -> if (t11 == type2) then t12 else error "Different types"
-                            _ -> error "Type is null"
+                            Arr t11 t12 -> if (t11 == type2) then t12
+                                            else Error
+--                                                else error "Different types"
+                            _ -> Error
+--                            _ -> error "Type is null"
 
-main = putStrLn ("OK")
+checkTyp :: Type -> Bool
+checkTyp typ = if (typ == Error) then False else True
+
+--main = putStrLn (show (checkTyp(checkType [("x", Bool)] (TermApp (TermAbs "y" (Arr Bool Bool) (TermVar "x")) (TermAbs "y" Bool (TermVar "y"))))))
+main = putStrLn (show (checkTyp(checkType [("x", Bool)] (TermApp (TermAbs "y" (Arr (Arr Bool Bool) Bool) (TermVar "y")) (TermAbs "x" Bool (TermVar "x"))))))
